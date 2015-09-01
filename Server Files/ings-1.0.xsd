@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ings"
+    targetNamespace="http://atreiaworld.com/ings-1.0.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://atreiaworld.com/ings-1.0.xsd"
+    xmlns:gs="http://atreiaworld.com/ings-1.0.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:simpleType name="itemRestriction">
+    <xs:annotation>
+      <xs:documentation>
+        Represents an item race restriction.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>
+            Undefined (universal).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>
+            Asmodians only item.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>
+            Elyos only item.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="itemQuality">
+    <xs:annotation>
+      <xs:documentation>
+        Represents an item quality.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>
+            A junk quality of item (grey).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>
+            A common quality of item (white).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>
+            A rare quality of item (green).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>
+            A legendary quality of item (blue).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>
+            An unique quality of item (yellow).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>
+            An epic quality of item (orange).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>
+            A mythic quality of item (purple).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="shopItem">
+    <xs:annotation>
+      <xs:documentation>
+        Represents a single in-game shop item.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          A shop item unique in-game identifier.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="title" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          A shop item title.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="quality" type="gs:itemQuality" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          A shop item quality.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="race" type="gs:itemRestriction" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          A shop item race restriction type.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="icon" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          A shop item image name.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="count" type="xs:decimal" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          A shop items count.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="price" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          A shop item price value.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="shopCategory">
+    <xs:annotation>
+      <xs:documentation>
+        Represents a shop category that contains a collection of shop items.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="item" type="gs:shopItem" form="qualified"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          A shop category name.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="shop">
+    <xs:annotation>
+      <xs:documentation>
+        Represents a collection of categorized shop items.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="category" type="gs:shopCategory" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- XML root element -->
+  <xs:element name="shop" type="gs:shop"/>
+  
+</xs:schema>

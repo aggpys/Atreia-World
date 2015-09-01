@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<shop xmlns="http://atreiaworld.com/ings-1.0.xsd">
+
+  <category name="Potions">
+    <item id="162000131" price="250" quality="unique" title="Noble Water Shield" icon="http://aiondatabase.net/items/icon_item_potion_invincible01.png"/>
+    <item id="162001030" price="100" quality="legend" title="[Event] Premium Recovery Potion" icon="http://aiondatabase.net/items/icon_item_potion_hpmp02_7.png"/>
+    <item id="162002009" price="20" quality="legend" title="[Event] Rubus Drink" icon="http://aiondatabase.net/items/icon_item_fanta_orange.png"/>
+    <item id="162002008" price="15" quality="legend" title="[Event] Mysterious Lotus Pill" icon="http://aiondatabase.net/items/icon_item_bolus01.png"/>
+    <item id="162002025" price="40" quality="legend" title="Powerful restoration serum for members of the Circus Troupe" icon="http://aiondatabase.net/items/icon_item_potion_hp04_2.png"/>
+    <item id="162000024" price="2" quality="rare" title="Lesser Wind Serum" icon="http://aiondatabase.net/items/icon_item_potion_cure04c.png"/>
+  </category>
+
+  <category name="Manastones">
+    <item id="167020080" price="50" quality="epic" title="Ancient Manastone: Magical Accuracy +22" icon="http://aiondatabase.net/items/icon_item_type_magicstone_02.png"/>
+    <item id="167020057" price="10" quality="unique" title="Ancient Manastone: Evasion +23" icon="http://aiondatabase.net/items/icon_item_magicstone_e04.png"/>
+    <item id="167020060" price="10" quality="unique" title="Ancient Manastone: Strike Resist +22" icon="http://aiondatabase.net/items/icon_item_magicstone_e04.png"/>
+    <item id="167010158" price="15" quality="legend" title="[Event] Manastone: Magical Accuracy +16 / HP + 50" icon="http://aiondatabase.net/items/icon_item_magicstone_03.png"/>
+    <item id="167020070" price="15" quality="legend" title="Ancient Manastone: PVP Physical Defence +5" icon="http://aiondatabase.net/items/icon_item_magicstone_e03.png"/>
+    <item id="167000553" price="5" quality="rare" title="Manastone: Accuracy +27" icon="http://aiondatabase.net/items/icon_item_magicstone_04.png"/>
+    <item id="167000322" price="1" quality="common" title="Manastone: HP +50" icon="http://aiondatabase.net/items/icon_item_magicstone_01.png"/>
+  </category>
+
+  <category name="Clothing">
+    <item id="110900069" price="13" quality="unique" title="Raiments of Mastery" icon="http://aiondatabase.net/items/icon_item_manufacture01.png"/>
+    <item id="110900130" price="2" quality="common" title="[Event] Antique Silk Hanbok" icon="http://aiondatabase.net/items/icon_cash_item_koreandress_body_m_03.png"/>
+    <item id="110900369" price="15" quality="common" title="[Event] Deep Sea Diver's Suit (7 days)" icon="http://aiondatabase.net/items/icon_cash_item_diving_body_01.png"/>
+    <item id="110900829" price="17" quality="common" title="[Event] Outfit of the Brave Heart" icon="http://aiondatabase.net/items/icon_cash_item_lovelyhero_body_02.png"/>
+    <item id="110900195" price="20" quality="rare" title="Embellished Casuals" icon="http://aiondatabase.net/items/icon_item_arena_reward_03.png"/>
+  </category>
+  
+</shop>
