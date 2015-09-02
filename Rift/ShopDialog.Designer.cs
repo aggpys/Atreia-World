@@ -113,6 +113,8 @@
             // flowPanel
             // 
             resources.ApplyResources(this.flowPanel, "flowPanel");
+            this.flowPanel.ChildCount = 0;
+            this.flowPanel.ForeColor = System.Drawing.Color.Green;
             this.flowPanel.Name = "flowPanel";
             // 
             // contentWorker
