@@ -32,7 +32,6 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonBuy = new System.Windows.Forms.Button();
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
-            this.labelTitle = new System.Windows.Forms.Label();
             this.labelId = new System.Windows.Forms.Label();
             this.labelIdValue = new System.Windows.Forms.Label();
             this.labelPrice = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelCountBase = new System.Windows.Forms.Label();
+            this.labelTitle = new Rift.Forms.WebLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.panelUpDown.SuspendLayout();
             this.panelCharacter.SuspendLayout();
@@ -85,11 +85,6 @@
             resources.ApplyResources(this.pictureBoxIcon, "pictureBoxIcon");
             this.pictureBoxIcon.Name = "pictureBoxIcon";
             this.pictureBoxIcon.TabStop = false;
-            // 
-            // labelTitle
-            // 
-            resources.ApplyResources(this.labelTitle, "labelTitle");
-            this.labelTitle.Name = "labelTitle";
             // 
             // labelId
             // 
@@ -214,6 +209,15 @@
             this.labelCountBase.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.labelCountBase.Name = "labelCountBase";
             // 
+            // labelTitle
+            // 
+            this.labelTitle.ActiveLinkColor = System.Drawing.Color.Gray;
+            this.labelTitle.AutoEllipsis = true;
+            this.labelTitle.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            resources.ApplyResources(this.labelTitle, "labelTitle");
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelTitle_LinkClicked);
+            // 
             // ItemDialog
             // 
             this.AcceptButton = this.buttonBuy;
@@ -227,6 +231,7 @@
             this.CaptionTextColorActive = System.Drawing.Color.White;
             this.CaptionTextColorInactive = System.Drawing.Color.WhiteSmoke;
             this.ControlBox = true;
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelCountBase);
             this.Controls.Add(this.panelConfirm);
             this.Controls.Add(this.panelCharacter);
@@ -243,7 +248,6 @@
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelPriceValue);
             this.Controls.Add(this.labelIdValue);
-            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.pictureBoxIcon);
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelId);
@@ -252,7 +256,6 @@
             this.Controls.SetChildIndex(this.labelId, 0);
             this.Controls.SetChildIndex(this.labelCount, 0);
             this.Controls.SetChildIndex(this.pictureBoxIcon, 0);
-            this.Controls.SetChildIndex(this.labelTitle, 0);
             this.Controls.SetChildIndex(this.labelIdValue, 0);
             this.Controls.SetChildIndex(this.labelPriceValue, 0);
             this.Controls.SetChildIndex(this.labelPrice, 0);
@@ -269,6 +272,7 @@
             this.Controls.SetChildIndex(this.panelCharacter, 0);
             this.Controls.SetChildIndex(this.panelConfirm, 0);
             this.Controls.SetChildIndex(this.labelCountBase, 0);
+            this.Controls.SetChildIndex(this.labelTitle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             this.panelUpDown.ResumeLayout(false);
             this.panelCharacter.ResumeLayout(false);
@@ -285,7 +289,6 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonBuy;
         private System.Windows.Forms.PictureBox pictureBoxIcon;
-        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelId;
         private System.Windows.Forms.Label labelIdValue;
         private System.Windows.Forms.Label labelPrice;
@@ -305,5 +308,6 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelCountBase;
+        private Forms.WebLabel labelTitle;
     }
 }

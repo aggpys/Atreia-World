@@ -41,7 +41,8 @@ namespace Rift
             
             labelAccountValue.Text = account.Name;
             labelTitle.Text = item.Title;
-            labelTitle.ForeColor = QualityColorHelper.GetForeColor(item.Quality);
+            labelTitle.LinkColor = QualityColorHelper.GetForeColor(item.Quality);
+            labelTitle.VisitedLinkColor = labelTitle.LinkColor;
             labelIdValue.Text = item.Identifier.ToString("D");
             labelCountBase.Text = string.Format("{0} ×", item.Count);
             labelPriceValue.Text = string.Format("{0}@", item.Price);
@@ -90,6 +91,11 @@ namespace Rift
         private void textBoxCharacter_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
+        }
+
+        private void labelTitle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            NavigationHelper.NavigateTo(string.Format(Resources.NavigationItemFormat, item.Identifier));
         }
     }
 }

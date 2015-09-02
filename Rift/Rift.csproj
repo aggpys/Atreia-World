@@ -60,6 +60,9 @@
     <Compile Include="Forms\ShopItemPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\WebLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MessageDialog.cs">
       <SubType>Form</SubType>
     </Compile>

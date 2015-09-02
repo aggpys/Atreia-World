@@ -355,6 +355,15 @@ namespace Rift.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://aiondatabase.net/ru/item/{0}.
+        /// </summary>
+        internal static string NavigationItemFormat {
+            get {
+                return ResourceManager.GetString("NavigationItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://tokatcc.1gb.ru/buy?user={0}&amp;password={1}&amp;item_id={2}&amp;count={3}&amp;character={4}.
         /// </summary>
         internal static string NavigationServerBuyUriFormat {

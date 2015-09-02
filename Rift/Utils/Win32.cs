@@ -13,7 +13,9 @@ namespace Rift.Utils
         public static readonly int WM_NCHITTEST = 0x84;
 
         public static readonly int WM_NCLBUTTONDOWN = 0xA1;
-        
+
+        public static readonly int WM_SETCURSOR = 32;
+
         public static readonly IntPtr HWND_BROADCAST = (IntPtr)0xffff;
         
         public static readonly IntPtr HWND_MESSAGE = (IntPtr) (-3);
@@ -55,6 +57,9 @@ namespace Rift.Utils
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern IntPtr LoadCursor(IntPtr hInstance, int cursor);
+
+        [DllImport("user32.dll")]
+        public static extern int SetCursor(IntPtr hCursor);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern bool DestroyCursor(IntPtr hCursor);
