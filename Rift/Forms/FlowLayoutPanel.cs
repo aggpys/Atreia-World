@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Rift.Properties;
 using Rift.Utils;
@@ -12,11 +11,31 @@ namespace Rift.Forms
     /// </summary>
     public sealed class FlowLayoutPanel : System.Windows.Forms.FlowLayoutPanel
     {
+        private int childCount;
+
+        /// <summary>
+        /// Gets or sets the panel child count.
+        /// </summary>
+        public int ChildCount
+        {
+            get { return childCount; }
+            set
+            {
+                var changed = childCount != value;
+                childCount = value;
+
+                if (changed)
+                    Invalidate();
+            }
+        }
+
         /// <summary>
         /// Creates a new instance of the <see cref="Rift.Forms.FlowLayoutPanel"/> class.
         /// </summary>
         public FlowLayoutPanel()
         {
+            childCount = 0;
+
             SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
@@ -51,11 +70,14 @@ namespace Rift.Forms
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
-            if (Controls.Count == 0)
-            {
-                TextRenderer.DrawText(e.Graphics, Resources.TextLoading, Font, ClientRectangle, ForeColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
-            }
+            if (Controls.Count == childCount) return;
+            TextRenderer.DrawText(
+                e.Graphics, 
+                Resources.TextLoading, 
+                Font, 
+                ClientRectangle, 
+                ForeColor, 
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
     }
 }

@@ -50,10 +50,9 @@ namespace Rift
 
             foreach (var category in shop.CategoryNames)
                 comboBoxCategory.Items.Add(category);
-            
+
+            flowPanel.ChildCount = shop.ItemsCount;
             comboBoxCategory.SelectedIndex = comboBoxCategory.Items.Count > 1 ? 1 : 0;
-            comboBoxCategory.Enabled = false;
-            textBoxSearch.Enabled = true;
         }
         
         protected override void OnHandleCreated(EventArgs e)
@@ -166,8 +165,13 @@ namespace Rift
 
             if (shop != null)
                 foreach (var item in shop[(string) comboBoxCategory.SelectedItem])
-                    itemPanels[item.GetHashCode()].Visible = true;
-            
+                {
+                    var code = item.GetHashCode();
+                    
+                    if (itemPanels.ContainsKey(code))
+                        itemPanels[code].Visible = true;
+                }
+
             flowPanel.ResumeLayout();
 
             flowPanel.Focus();
@@ -251,7 +255,10 @@ namespace Rift
             foreach (var item in shop.Items)
             {
                 var title = item.Title.ToLower();
-                itemPanels[item.GetHashCode()].Visible = title.Contains(searchSubstring);
+                var hash = item.GetHashCode();
+
+                if (itemPanels.ContainsKey(hash))
+                    itemPanels[item.GetHashCode()].Visible = title.Contains(searchSubstring);
             }
 
             flowPanel.ResumeLayout();
@@ -265,12 +272,6 @@ namespace Rift
             if (textBoxSearch.Text.Length < 3) return;
 
             timerSearch.Start();
-        }
-
-        private void contentWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            comboBoxCategory.Enabled = true;
-            textBoxSearch.Enabled = true;
         }
     }
 }

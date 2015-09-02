@@ -164,30 +164,6 @@ namespace Rift.Forms
                 
                 if (ContainedItem.Restriction != ItemRaceRestriction.Universal)
                 {
-                    /*
-                    var color = ContainedItem.Restriction == ItemRaceRestriction.Asmodians
-                        ? Color.CadetBlue
-                        : Color.OliveDrab;
-
-                    var racePath = new GraphicsPath();
-
-                    racePath.StartFigure();
-                    racePath.AddPolygon(new[]
-                    {
-                    new Point(0, 0),
-                    new Point(ClientSize.Width/8, 0),
-                    new Point(0, ClientSize.Width/8)
-                    });
-                    racePath.CloseFigure();
-
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-                    using (var brush = new SolidBrush(color))
-                        e.Graphics.FillPath(brush, racePath);
-
-                    e.Graphics.SmoothingMode = SmoothingMode.Default;
-                    */
-
                     using (var raceImage = ContainedItem.Restriction == ItemRaceRestriction.Elyos
                             ? Resources.ImageElyos
                             : Resources.ImageAsmodians)

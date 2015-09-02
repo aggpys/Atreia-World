@@ -65,6 +65,7 @@
             this.panelSearch.BorderActiveColor = System.Drawing.Color.Green;
             this.panelSearch.BorderColor = System.Drawing.Color.DimGray;
             this.panelSearch.Controls.Add(this.textBoxSearch);
+            this.panelSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             resources.ApplyResources(this.panelSearch, "panelSearch");
             this.panelSearch.Name = "panelSearch";
             // 
@@ -118,7 +119,6 @@
             // 
             this.contentWorker.WorkerSupportsCancellation = true;
             this.contentWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.contentWorker_DoWork);
-            this.contentWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.contentWorker_RunWorkerCompleted);
             // 
             // timerSearch
             // 
