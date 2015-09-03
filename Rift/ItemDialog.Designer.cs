@@ -52,6 +52,7 @@
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelCountBase = new System.Windows.Forms.Label();
             this.labelTitle = new Rift.Forms.WebLabel();
+            this.labelAbout = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.panelUpDown.SuspendLayout();
             this.panelCharacter.SuspendLayout();
@@ -76,7 +77,7 @@
             this.buttonBuy.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.buttonBuy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.buttonBuy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-            this.buttonBuy.ForeColor = System.Drawing.Color.DimGray;
+            this.buttonBuy.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonBuy.Name = "buttonBuy";
             this.buttonBuy.UseVisualStyleBackColor = true;
             // 
@@ -218,6 +219,12 @@
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelTitle_LinkClicked);
             // 
+            // labelAbout
+            // 
+            this.labelAbout.ForeColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.labelAbout, "labelAbout");
+            this.labelAbout.Name = "labelAbout";
+            // 
             // ItemDialog
             // 
             this.AcceptButton = this.buttonBuy;
@@ -231,6 +238,7 @@
             this.CaptionTextColorActive = System.Drawing.Color.White;
             this.CaptionTextColorInactive = System.Drawing.Color.WhiteSmoke;
             this.ControlBox = true;
+            this.Controls.Add(this.labelAbout);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelCountBase);
             this.Controls.Add(this.panelConfirm);
@@ -273,6 +281,7 @@
             this.Controls.SetChildIndex(this.panelConfirm, 0);
             this.Controls.SetChildIndex(this.labelCountBase, 0);
             this.Controls.SetChildIndex(this.labelTitle, 0);
+            this.Controls.SetChildIndex(this.labelAbout, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             this.panelUpDown.ResumeLayout(false);
             this.panelCharacter.ResumeLayout(false);
@@ -309,5 +318,6 @@
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelCountBase;
         private Forms.WebLabel labelTitle;
+        private System.Windows.Forms.Label labelAbout;
     }
 }

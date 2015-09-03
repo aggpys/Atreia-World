@@ -25,7 +25,7 @@ namespace Rift.Forms
 
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == 32)
+            if (m.Msg == Win32.WM_SETCURSOR)
             {
                 var cursor = Win32.LoadCursor(IntPtr.Zero, Win32.IDC_HAND);
                 Win32.SetCursor(cursor);
