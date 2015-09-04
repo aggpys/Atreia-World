@@ -8,7 +8,7 @@ using Rift.Utils;
 namespace Rift
 {
     // This part of RiftContext class defines
-    // an application user interface.
+    // an application notify icon user interface.
     public sealed partial class RiftContext : ApplicationContext
     {
         private MessageProvider messageProvider;    // Handles the window messages (WM).

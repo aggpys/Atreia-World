@@ -115,6 +115,8 @@ namespace Rift
         /// <param name="parameters">A game client process start parameters.</param>
         public void StartGame(GameProcessParameters parameters)
         {
+            if (!Initialized) return;
+
             var menuItemProcess = new MenuItem(string.Format(Resources.TrayMenuKillFormat, parameters.Account.Name), OnProcessKill)
             {
                 Tag = gameProcessManager.StartClient(parameters)

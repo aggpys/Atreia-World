@@ -12,6 +12,8 @@ namespace Rift.Data
     [Serializable]
     public sealed class GameAccount : IEquatable<GameAccount>, ISerializable
     {
+        private readonly string name;
+
         /// <summary>
         /// Gets an empty <see cref="Rift.Data.GameAccount"/> without a name and password.
         /// </summary>
@@ -20,7 +22,10 @@ namespace Rift.Data
         /// <summary>
         /// Gets an account name.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name
+        {
+            get { return name; }
+        }
 
         /// <summary>
         /// Gets an account password.
@@ -38,19 +43,19 @@ namespace Rift.Data
             if (string.IsNullOrEmpty(name) ||
                 string.IsNullOrEmpty(password))
             {
-                Name = null;
+                this.name = null;
                 Password = null;
 
                 return;
             }
 
-            Name = name;
+            this.name = name;
             Password = password;
         }
 
         private GameAccount(SerializationInfo info, StreamingContext context)
         {
-            Name = info.GetString("name");
+            name = info.GetString("name");
             Password = info.GetString("password");
         }
 
@@ -67,7 +72,7 @@ namespace Rift.Data
         /// </summary>
         public override int GetHashCode()
         {
-            return string.IsNullOrEmpty(Name) ? 0 : Name.GetHashCode();
+            return string.IsNullOrEmpty(name) ? 0 : name.GetHashCode();
         }
 
         /// <summary>
