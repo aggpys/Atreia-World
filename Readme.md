@@ -1,8 +1,8 @@
 # Atreia World game client launcher & shop
 
 | Language         | Platform                     | Programming language  |
-| ---------------- |:----------------------------:| :--------------------:|
-| Russian/Русский  | Microsoft .Net Framework 4.0 | C#					  |
+| :--------------: |:----------------------------:| :--------------------:|
+| Russian          | Microsoft .Net Framework 4.0 | C#					  |
 
 ![Main window](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-main.png)
 
