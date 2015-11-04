@@ -123,6 +123,7 @@
     <Compile Include="ShopDialog.Designer.cs">
       <DependentUpon>ShopDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\FormExtensions.cs" />
     <Compile Include="Utils\IconPathResolver.cs" />
     <Compile Include="Utils\ImageCache.cs" />
     <Compile Include="ItemDialog.cs">
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

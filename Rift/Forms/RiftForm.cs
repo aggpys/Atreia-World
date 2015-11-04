@@ -412,6 +412,18 @@ namespace Rift.Forms
             TopMost = topMost;
         }
 
+        /// <summary>
+        /// Enables or disables the form control box.
+        /// </summary>
+        /// <param name="enabled">
+        /// A value that indicates whether the control box is enabled.
+        /// </param>
+        public void EnableControlBox(bool enabled)
+        {
+            closeButton.Enabled = enabled;
+            minimizeButton.Enabled = enabled;
+        }
+
         private void InitializeControlBox()
         {
             minimizeButton = new SpriteButton();

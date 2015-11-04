@@ -172,7 +172,7 @@
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="shop">
+  <xs:complexType name="shopCategories">
     <xs:annotation>
       <xs:documentation>
         Represents a collection of categorized shop items.
@@ -183,6 +183,12 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="shop">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="categories" maxOccurs="1" type="gs:shopCategories" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+  
   <!-- XML root element -->
   <xs:element name="shop" type="gs:shop"/>
   

@@ -316,4 +316,10 @@
     <value>http://aiondatabase.net/ru/item/{0}</value>
     <comment>Single parameter</comment>
   </data>
+  <data name="ItemRaceAsmo" xml:space="preserve">
+    <value>Только для асмодиан</value>
+  </data>
+  <data name="ItemRaceEly" xml:space="preserve">
+    <value>Только для элийцев</value>
+  </data>
 </root>

@@ -53,6 +53,7 @@
             this.labelCountBase = new System.Windows.Forms.Label();
             this.labelTitle = new Rift.Forms.WebLabel();
             this.labelAbout = new System.Windows.Forms.Label();
+            this.labelRace = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.panelUpDown.SuspendLayout();
             this.panelCharacter.SuspendLayout();
@@ -116,10 +117,10 @@
             // 
             // panelUpDown
             // 
+            resources.ApplyResources(this.panelUpDown, "panelUpDown");
             this.panelUpDown.BorderActiveColor = System.Drawing.Color.LightSkyBlue;
             this.panelUpDown.BorderColor = System.Drawing.Color.DarkGray;
             this.panelUpDown.Controls.Add(this.comboBoxCount);
-            resources.ApplyResources(this.panelUpDown, "panelUpDown");
             this.panelUpDown.Name = "panelUpDown";
             // 
             // comboBoxCount
@@ -161,11 +162,11 @@
             // 
             // panelCharacter
             // 
+            resources.ApplyResources(this.panelCharacter, "panelCharacter");
             this.panelCharacter.BackColor = System.Drawing.Color.White;
             this.panelCharacter.BorderActiveColor = System.Drawing.Color.LightSkyBlue;
             this.panelCharacter.BorderColor = System.Drawing.Color.DarkGray;
             this.panelCharacter.Controls.Add(this.textBoxCharacter);
-            resources.ApplyResources(this.panelCharacter, "panelCharacter");
             this.panelCharacter.Name = "panelCharacter";
             // 
             // textBoxCharacter
@@ -183,11 +184,11 @@
             // 
             // panelConfirm
             // 
+            resources.ApplyResources(this.panelConfirm, "panelConfirm");
             this.panelConfirm.BackColor = System.Drawing.Color.White;
             this.panelConfirm.BorderActiveColor = System.Drawing.Color.LightSkyBlue;
             this.panelConfirm.BorderColor = System.Drawing.Color.DarkGray;
             this.panelConfirm.Controls.Add(this.textBoxPassword);
-            resources.ApplyResources(this.panelConfirm, "panelConfirm");
             this.panelConfirm.Name = "panelConfirm";
             // 
             // textBoxPassword
@@ -221,9 +222,15 @@
             // 
             // labelAbout
             // 
-            this.labelAbout.ForeColor = System.Drawing.Color.LightGray;
             resources.ApplyResources(this.labelAbout, "labelAbout");
+            this.labelAbout.ForeColor = System.Drawing.Color.LightGray;
             this.labelAbout.Name = "labelAbout";
+            // 
+            // labelRace
+            // 
+            resources.ApplyResources(this.labelRace, "labelRace");
+            this.labelRace.ForeColor = System.Drawing.Color.Silver;
+            this.labelRace.Name = "labelRace";
             // 
             // ItemDialog
             // 
@@ -238,6 +245,7 @@
             this.CaptionTextColorActive = System.Drawing.Color.White;
             this.CaptionTextColorInactive = System.Drawing.Color.WhiteSmoke;
             this.ControlBox = true;
+            this.Controls.Add(this.labelRace);
             this.Controls.Add(this.labelAbout);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelCountBase);
@@ -282,6 +290,7 @@
             this.Controls.SetChildIndex(this.labelCountBase, 0);
             this.Controls.SetChildIndex(this.labelTitle, 0);
             this.Controls.SetChildIndex(this.labelAbout, 0);
+            this.Controls.SetChildIndex(this.labelRace, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             this.panelUpDown.ResumeLayout(false);
             this.panelCharacter.ResumeLayout(false);
@@ -319,5 +328,6 @@
         private System.Windows.Forms.Label labelCountBase;
         private Forms.WebLabel labelTitle;
         private System.Windows.Forms.Label labelAbout;
+        private System.Windows.Forms.Label labelRace;
     }
 }

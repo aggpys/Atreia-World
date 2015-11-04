@@ -200,24 +200,14 @@ namespace Rift
         // In most cases this method is called from the non-UI thread.
         private void ServerManager_StatusUpdated(object sender, ServerStatusEventArgs e)
         {
-            if (InvokeRequired)
-            {
-                Invoke(new MethodInvoker(() => UpdateStatus(e.Status)));
-            }
-            else
-            {
-                UpdateStatus(e.Status);
-            }
+            this.InvokeAction(() => UpdateStatus(e.Status));
         }
 
         private void ShopManager_PriceListReady(object sender, PriceListReadyEventArgs e)
         {
             shop = e.PriceList;
 
-            if (InvokeRequired)
-                Invoke(new MethodInvoker(() => UpdateShopButton(0, shop != null)));
-            else
-                UpdateShopButton(0, shop != null);
+            this.InvokeAction(() => UpdateShopButton(0, shop != null));
         }
 
         private void ShopManager_PriceListLoading(object sender, PriceListLoadingEventArgs e)
@@ -228,10 +218,7 @@ namespace Rift
             if (value > 100)
                 value = 100;
 
-            if (InvokeRequired)
-                Invoke(new MethodInvoker(() => UpdateShopButton(value, false)));
-            else
-                UpdateShopButton(value, false);
+            this.InvokeAction(() => UpdateShopButton(value, false));
         }
         
         private void comboBoxName_SelectedIndexChanged(object sender, EventArgs e)

@@ -171,12 +171,17 @@ namespace Rift.Services
 
             if (xdoc == null || xdoc.Root == null) return null;
 
+            var xNameCategories = XName.Get("categories", DefaultNamespace);
             var xNameCategory = XName.Get("category", DefaultNamespace);
             var xNameItem = XName.Get("item", DefaultNamespace);
 
             var result = new GameShop();
+            var categoriesRoot = xdoc.Root.Element(xNameCategories);
 
-            foreach (var xcat in xdoc.Root.Elements(xNameCategory))
+            if (categoriesRoot == null)
+                return null;
+
+            foreach (var xcat in categoriesRoot.Elements(xNameCategory))
             {
                 var catAttr = xcat.Attribute("name");
                 if (catAttr == null || string.IsNullOrEmpty(catAttr.Value)) return null;

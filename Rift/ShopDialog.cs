@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Forms;
 using Rift.Data;
 using Rift.Forms;
 using Rift.Properties;
 using Rift.Services;
+using Rift.Utils;
 
 namespace Rift
 {
@@ -19,7 +21,9 @@ namespace Rift
         private readonly GameAccount account;
 
         private readonly Dictionary<int, ShopItemPanel> itemPanels;
-        private readonly Queue<string> characters; 
+        private readonly Queue<string> characters;
+
+        private volatile bool onLoading;
 
         /// <summary>
         /// Creates a new instance of the <see cref="Rift.ShopDialog"/> class
@@ -33,6 +37,8 @@ namespace Rift
 
             this.account = account;
             this.shop = shop;
+
+            onLoading = false;
 
             characters = new Queue<string>();
             itemPanels = new Dictionary<int, ShopItemPanel>();
@@ -66,6 +72,13 @@ namespace Rift
                 App.CurrentContext.ShopManager.UpdatePointsAsync(account);
         }
         
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            e.Cancel = onLoading;
+
+            base.OnClosing(e);
+        }
+
         private void DisposeComponents()
         {
             App.CurrentContext.ShopManager.ItemBought -= ShopManager_ItemBought;
@@ -139,18 +152,12 @@ namespace Rift
 
         private void ShopManager_ItemBought(object sender, ItemBoughtEventArgs e)
         {
-            if (InvokeRequired)
-                Invoke(new MethodInvoker(() => HandleItemOperation(e.Result)));
-            else
-                HandleItemOperation(e.Result);
+            this.InvokeAction(() => HandleItemOperation(e.Result));
         }
 
         private void ShopManager_PointsReceived(object sender, PointsReceivedEventArgs e)
         {
-            if (InvokeRequired)
-                Invoke(new MethodInvoker(() => UpdatePoints(e.Points)));
-            else
-                UpdatePoints(e.Points);
+            this.InvokeAction(() => UpdatePoints(e.Points));
         }
 
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,35 +207,20 @@ namespace Rift
 
         private void contentWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            onLoading = true;
+            this.InvokeAction(() => EnableControlBox(false));
+
             foreach (var category in shop)
             {
                 var visible = false;
-
-                if (InvokeRequired)
-                {
-                    Invoke(new MethodInvoker(() =>
-                    {
-                        visible = category.Name.Equals(comboBoxCategory.SelectedItem);
-                    }));
-                }
-                else
-                {
-                    visible = category.Name.Equals(comboBoxCategory.SelectedItem);
-                }
+                this.InvokeAction(() => { visible = category.Name.Equals(comboBoxCategory.SelectedItem); });
 
                 foreach (var item in category)
-                {
-                    
-                    if (InvokeRequired)
-                    {
-                        Invoke(new MethodInvoker(() => AddItemPanel(item, visible)));
-                    }
-                    else
-                    {
-                        AddItemPanel(item, visible);
-                    }
-                }
+                    this.InvokeAction(() => AddItemPanel(item, visible));
             }
+
+            onLoading = false;
+            this.InvokeAction((() => EnableControlBox(true)));
         }
 
         private void AddItemPanel(ShopItem item, bool visible)
@@ -237,14 +229,14 @@ namespace Rift
             {
                 Visible = visible
             };
-
+            
             control.Action += itemPanel_Action;
             itemPanels.Add(item.GetHashCode(), control);
             flowPanel.SuspendLayout();
             flowPanel.Controls.Add(control);
             flowPanel.ResumeLayout();
         }
-
+        
         private void timerSearch_Tick(object sender, EventArgs e)
         {
             var searchSubstring = textBoxSearch.Text.ToLower();

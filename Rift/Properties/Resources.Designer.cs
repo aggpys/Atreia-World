@@ -283,6 +283,24 @@ namespace Rift.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Только для асмодиан.
+        /// </summary>
+        internal static string ItemRaceAsmo {
+            get {
+                return ResourceManager.GetString("ItemRaceAsmo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Только для элийцев.
+        /// </summary>
+        internal static string ItemRaceEly {
+            get {
+                return ResourceManager.GetString("ItemRaceEly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка.
         /// </summary>
         internal static string MessageDialogError {

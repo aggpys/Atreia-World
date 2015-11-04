@@ -46,7 +46,13 @@ namespace Rift
             labelIdValue.Text = item.Identifier.ToString("D");
             labelCountBase.Text = string.Format("{0} ×", item.Count);
             labelPriceValue.Text = string.Format("{0}@", item.Price);
-            
+
+            if (item.Restriction != ItemRaceRestriction.Universal)
+                labelRace.Text =
+                    item.Restriction == ItemRaceRestriction.Asmodians
+                        ? Resources.ItemRaceAsmo
+                        : Resources.ItemRaceEly;
+
             characterRegex = new Regex(Resources.RegexCharacterName);
             
             App.CurrentContext.Cache.GetImageAsync(IconPathResolver.ExpandUri(item.IconUri), UpdateItemIcon);
