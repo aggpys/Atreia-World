@@ -409,7 +409,7 @@ namespace Rift.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://tokatcc.1gb.ru/price.
+        ///   Looks up a localized string similar to https://raw.githubusercontent.com/aggpys/Atreia-World/master/Server%20Files/gshop-0.1.xml.
         /// </summary>
         internal static string NavigationServerPriceUri {
             get {

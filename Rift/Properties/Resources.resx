@@ -180,7 +180,7 @@
     <value>Информация</value>
   </data>
   <data name="NavigationServerPriceUri" xml:space="preserve">
-    <value>http://tokatcc.1gb.ru/price</value>
+    <value>https://raw.githubusercontent.com/aggpys/Atreia-World/master/Server%20Files/gshop-0.1.xml</value>
     <comment>*</comment>
   </data>
   <data name="TrayAppName" xml:space="preserve">

@@ -1694,8 +1694,5 @@
       <item id="166000120" price="6" title="Волшебный камень (ур. 120)" icon="icon_item_enchantstone06" quality="1" count="5" />
       <item id="166030005" price="15" title="Святая вода аугментации" icon="icon_item_2stenchant_water_m01" quality="6" />
     </category>
-    <category name="[Обмен невозможен]">
-      <item id="169405245" price="3" title="Блестящий кристалл перехода" icon="icon_item_we_shopcmaterial_s_pve_m_60a" quality="6" />
-    </category>
   </categories>
 </shop>

@@ -183,13 +183,18 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="shop">
+  <xs:complexType name="gameShop">
+    <xs:annotation>
+      <xs:documentation>
+        Represents an in-game items list separated by the categories.
+      </xs:documentation>
+    </xs:annotation>
     <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element name="categories" maxOccurs="1" type="gs:shopCategories" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
   
   <!-- XML root element -->
-  <xs:element name="shop" type="gs:shop"/>
+  <xs:element name="shop" type="gs:gameShop"/>
   
 </xs:schema>

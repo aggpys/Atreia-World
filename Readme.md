@@ -1,7 +1,13 @@
 # Atreia World game client launcher & shop
 
-![ScreenShot](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-main.png)
+| Language         | Platform                     | Programming language  |
+| ---------------- |:----------------------------:| :--------------------:|
+| Russian/Русский  | Microsoft .Net Framework 4.0 | C#					  |
 
-![ScreenShot](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-shop.png)
+![Main window](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-main.png)
 
-![ScreenShot](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-buy.png)
+![Shop dialog box](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-shop.png)
+
+![Purchase item dialog box](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-buy.png)
+
+__Emulator__ page: http://atreiaworld.com
