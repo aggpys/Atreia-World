@@ -13,6 +13,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server Files", "Server File
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shugo", "Shugo\Shugo.csproj", "{40FA8338-8A5F-4727-B316-48F580E66E02}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBA93C3B-8147-4F54-AFC6-0AF9FA26F07E}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{A3C4ACBE-9971-4C9E-A889-15AB79CC5375}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\s-buy.png = Screenshots\s-buy.png
+		Screenshots\s-main.png = Screenshots\s-main.png
+		Screenshots\s-shop.png = Screenshots\s-shop.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
