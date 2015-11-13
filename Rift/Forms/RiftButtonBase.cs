@@ -184,7 +184,7 @@ namespace Rift.Forms
                     Invalidate();
             }
         }
-
+        
         protected override void OnKeyUp(KeyEventArgs e)
         {
             base.OnKeyUp(e);

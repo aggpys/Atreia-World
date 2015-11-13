@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Windows.Forms;
 using Rift.Data;
 using Rift.Forms;
 using Rift.Properties;
@@ -26,7 +25,7 @@ namespace Rift
 
             shop = null;
         }
-
+        
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
@@ -47,7 +46,7 @@ namespace Rift
 
             if (!string.IsNullOrEmpty(comboBoxName.Text) &&
                 !string.IsNullOrEmpty(textBoxPassword.Text))
-                actionButtonPlay.Focus();
+                ActiveControl = actionButtonPlay;
 
             App.CurrentContext.ServerManager.UpdateStatusAsync();
         }
@@ -97,7 +96,7 @@ namespace Rift
 
             comboBoxName.SelectedItem = selected;
             textBoxPassword.Text = selected.Password;
-
+            
             ResumeLayout();
         }
 

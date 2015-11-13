@@ -30,8 +30,10 @@ namespace Rift.Forms
     /// </summary>
     public class SpriteButton : RiftButtonBase
     {
-        private SpriteOrientation spriteOrientation;
+        private const int spritePower = 4;
 
+        private SpriteOrientation spriteOrientation;
+        
         /// <summary>
         /// Gets the background color for this control.
         /// </summary>
@@ -101,22 +103,20 @@ namespace Rift.Forms
         private void FitControlToSprite()
         {
 
-            var size = BackgroundImage != null ? 
-                BackgroundImage.Size :
-                Size.Empty;
+            var size = BackgroundImage != null ? BackgroundImage.Size : Size.Empty;
 
             switch (spriteOrientation)
             {
                 case SpriteOrientation.Horizontal:
-                    Size = new Size(size.Width / 3, size.Height);
+                    Size = new Size(size.Width / spritePower, size.Height);
                     break;
                 case SpriteOrientation.Vertical:
-                    Size = new Size(size.Width, size.Height / 3);
+                    Size = new Size(size.Width, size.Height / spritePower);
                     break;
                 default:
                     Size = size.Width > size.Height ?
-                        new Size(size.Width / 3, size.Height) :
-                        new Size(size.Width, size.Height / 3);
+                        new Size(size.Width / spritePower, size.Height) :
+                        new Size(size.Width, size.Height / spritePower);
                     break;
             }
         }
@@ -132,48 +132,36 @@ namespace Rift.Forms
             if (BackgroundImage == null)
                 return;
 
-            var delta = (int)State;
+            var delta = Enabled ? (int)State : spritePower - 1;
             var destRect = Rectangle.Empty;
             var sourceRect = Rectangle.Empty;
 
             switch (spriteOrientation)
             {
                 case SpriteOrientation.Horizontal:
-                    destRect.Size = new Size(BackgroundImage.Width / 3, BackgroundImage.Height);
-                    sourceRect.Location = new Point(delta * (BackgroundImage.Width / 3), 0);
+                    destRect.Size = new Size(BackgroundImage.Width / spritePower, BackgroundImage.Height);
+                    sourceRect.Location = new Point(delta * (BackgroundImage.Width / spritePower), 0);
                     break;
                 case SpriteOrientation.Vertical:
-                    destRect.Size = new Size(BackgroundImage.Width, BackgroundImage.Height / 3);
-                    sourceRect.Location = new Point(0, delta * (BackgroundImage.Height / 3));
+                    destRect.Size = new Size(BackgroundImage.Width, BackgroundImage.Height / spritePower);
+                    sourceRect.Location = new Point(0, delta * (BackgroundImage.Height / spritePower));
                     break;
                 default:
                     if (BackgroundImage.Width > BackgroundImage.Height)
                     {
-                        destRect.Size = new Size(BackgroundImage.Width / 3, BackgroundImage.Height);
-                        sourceRect.Location = new Point(delta * (BackgroundImage.Width / 3), 0);
+                        destRect.Size = new Size(BackgroundImage.Width / spritePower, BackgroundImage.Height);
+                        sourceRect.Location = new Point(delta * (BackgroundImage.Width / spritePower), 0);
                     }
                     else
                     {
-                        destRect.Size = new Size(BackgroundImage.Width, BackgroundImage.Height / 3);
-                        sourceRect.Location = new Point(0, delta * (BackgroundImage.Height / 3));
+                        destRect.Size = new Size(BackgroundImage.Width, BackgroundImage.Height / spritePower);
+                        sourceRect.Location = new Point(0, delta * (BackgroundImage.Height / spritePower));
                     }
                     break;
             }
 
             sourceRect.Size = destRect.Size;
-
-            if (Enabled)
-                e.Graphics.DrawImage(BackgroundImage, destRect, sourceRect, GraphicsUnit.Pixel);
-            else
-            {
-                using (var tempBitmap = new Bitmap(sourceRect.Width, sourceRect.Height, PixelFormat.Format32bppArgb))
-                {
-                    using (var g = Graphics.FromImage(tempBitmap))
-                        g.DrawImage(BackgroundImage, destRect, sourceRect, GraphicsUnit.Pixel);
-
-                    ControlPaint.DrawImageDisabled(e.Graphics, tempBitmap, 0, 0, BackColor);
-                }
-            }
+            e.Graphics.DrawImage(BackgroundImage, destRect, sourceRect, GraphicsUnit.Pixel);
         }
 
         protected override void OnPaintFocus(PaintEventArgs e)
@@ -181,7 +169,7 @@ namespace Rift.Forms
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             using (var pen = new Pen(SystemColors.Highlight, 2.0f))
-                e.Graphics.DrawEllipse(pen, 1, 1, ClientSize.Width - 3, ClientSize.Height - 3);
+                e.Graphics.DrawEllipse(pen, 1, 1, ClientSize.Width - spritePower, ClientSize.Height - spritePower);
 
             e.Graphics.SmoothingMode = SmoothingMode.Default;
         }

@@ -11,7 +11,7 @@ namespace Rift.Services
     /// Represents an in-game account manager.
     /// This class cannot be inherited.
     /// </summary>
-    public sealed class AccountManager : IConfigurable
+    public sealed class AccountManager
     {
         private readonly AccountDataCollection accounts;
         private int current;

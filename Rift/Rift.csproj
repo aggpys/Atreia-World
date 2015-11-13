@@ -114,7 +114,6 @@
     <Compile Include="Services\GameExitedEventArgs.cs" />
     <Compile Include="Services\GameProcessManager.cs" />
     <Compile Include="Services\GameProcessParameters.cs" />
-    <Compile Include="IConfigurable.cs" />
     <Compile Include="Services\ServerManager.cs" />
     <Compile Include="Services\ShopManager.cs" />
     <Compile Include="ShopDialog.cs">

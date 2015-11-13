@@ -12,7 +12,7 @@ namespace Rift
     /// Specifies the contextual information about an application thread.
     /// This class cannot be inherited.
     /// </summary>
-    public sealed partial class RiftContext : IConfigurable
+    public sealed partial class RiftContext
     {
         private readonly GameClientManager gameClientManager;   // Game client files, folders, checking.
         private readonly GameProcessManager gameProcessManager; // Start new, kill by PID, etc.
