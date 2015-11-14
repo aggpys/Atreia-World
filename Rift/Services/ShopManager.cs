@@ -407,8 +407,8 @@ namespace Rift.Services
         public void UpdatePointsAsync(GameAccount account)
         {
             var request = string.Format(Resources.NavigationServerPointsFormat,
-                account.Name);//,
-                // account.GetPasswordHashString()); // TODO: Implement secure here.
+                account.Name,
+                account.GetPasswordHashString());
 
             try
             {

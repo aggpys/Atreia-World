@@ -260,7 +260,7 @@
     <comment>Single parameter</comment>
   </data>
   <data name="NavigationServerPointsFormat" xml:space="preserve">
-    <value>http://localhost:5000/api/points/{0}</value>
+    <value>http://localhost:5000/api/points/{0}?p={1}</value>
     <comment>*</comment>
   </data>
   <data name="ImageSpriteDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">

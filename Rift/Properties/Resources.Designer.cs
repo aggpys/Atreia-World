@@ -400,7 +400,7 @@ namespace Rift.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://localhost:5000/api/points/{0}.
+        ///   Looks up a localized string similar to http://localhost:5000/api/points/{0}?p={1}.
         /// </summary>
         internal static string NavigationServerPointsFormat {
             get {
