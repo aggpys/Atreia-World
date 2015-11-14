@@ -24,6 +24,7 @@ namespace Rift
         private readonly Queue<string> characters;
 
         private volatile bool onLoading;
+        private volatile bool updateEnabled;
 
         /// <summary>
         /// Creates a new instance of the <see cref="Rift.ShopDialog"/> class
@@ -39,6 +40,7 @@ namespace Rift
             this.shop = shop;
 
             onLoading = false;
+            updateEnabled = true;
 
             characters = new Queue<string>();
             itemPanels = new Dictionary<int, ShopItemPanel>();
@@ -67,9 +69,6 @@ namespace Rift
 
             App.CurrentContext.ShopManager.ItemBought += ShopManager_ItemBought;
             App.CurrentContext.ShopManager.PointsReceived += ShopManager_PointsReceived;
-
-            if (account != null)
-                App.CurrentContext.ShopManager.UpdatePointsAsync(account);
         }
         
         protected override void OnClosing(CancelEventArgs e)
@@ -104,7 +103,7 @@ namespace Rift
 
         private void UpdatePoints(int p)
         {
-            labelPoints.Visible = p >= 0;
+            panelTop.SuspendLayout();
 
             if (p < 0)
                 using (var dialog = new MessageDialog(MessageType.Warning, Resources.WarningUpdatePointsCount))
@@ -112,6 +111,7 @@ namespace Rift
             else
                 labelPoints.Text = string.Format("{0}@", p);
             
+            panelTop.ResumeLayout();
             contentWorker.RunWorkerAsync();
         }
 
@@ -256,6 +256,16 @@ namespace Rift
             flowPanel.ResumeLayout();
 
             timerSearch.Stop();
+        }
+
+        private void timerUpdate_Tick(object sender, EventArgs e)
+        {
+            if (updateEnabled &&
+                account != null)
+            {
+                updateEnabled = false;
+                App.CurrentContext.ShopManager.UpdatePointsAsync(account);
+            }
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)

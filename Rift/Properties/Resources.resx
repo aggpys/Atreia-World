@@ -260,7 +260,7 @@
     <comment>Single parameter</comment>
   </data>
   <data name="NavigationServerPointsFormat" xml:space="preserve">
-    <value>http://tokatcc.1gb.ru/points?user={0}&amp;password={1}</value>
+    <value>http://localhost:5000/api/points/{0}</value>
     <comment>*</comment>
   </data>
   <data name="ImageSpriteDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">

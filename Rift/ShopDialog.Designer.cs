@@ -45,6 +45,7 @@
             this.flowPanel = new Rift.Forms.FlowLayoutPanel();
             this.contentWorker = new System.ComponentModel.BackgroundWorker();
             this.timerSearch = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             this.panelTop.SuspendLayout();
             this.panelSearch.SuspendLayout();
             this.panelCategory.SuspendLayout();
@@ -127,6 +128,12 @@
             this.timerSearch.Interval = 1000;
             this.timerSearch.Tick += new System.EventHandler(this.timerSearch_Tick);
             // 
+            // timerUpdate
+            // 
+            this.timerUpdate.Enabled = true;
+            this.timerUpdate.Interval = 2000;
+            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
+            // 
             // ShopDialog
             // 
             resources.ApplyResources(this, "$this");
@@ -166,5 +173,6 @@
         private Forms.FieldPanel panelSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Timer timerSearch;
+        private System.Windows.Forms.Timer timerUpdate;
     }
 }
