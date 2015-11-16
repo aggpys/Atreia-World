@@ -57,6 +57,12 @@ def getpoints(account):
     except:
         abort(404)
 
+# REST API: returns the server status code.
+@abyss_app.route('/api/status')
+@abyss_cache.memoize(120)
+def getstatus():
+    return str(0)
+
 # ------------------------------------------------
 # The main entry point for the server application.
 # ------------------------------------------------

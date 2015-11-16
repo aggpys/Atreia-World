@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Cryptography;
 using System.Text;
@@ -82,12 +83,12 @@ namespace Rift.Data
         {
             string hash;
 
-            using (var hashGen = new MD5CryptoServiceProvider())
+            using (var hashGen = new SHA1CryptoServiceProvider())
             {
                 var buffer = Encoding.UTF8.GetBytes(Password);
                 var temp = hashGen.ComputeHash(buffer);
 
-                hash = Encoding.UTF8.GetString(temp).Replace("-", string.Empty);
+                hash = Convert.ToBase64String(temp);
             }
 
             return hash;

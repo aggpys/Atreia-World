@@ -418,7 +418,7 @@ namespace Rift.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://tokatcc.1gb.ru/status.
+        ///   Looks up a localized string similar to http://localhost:5000/api/status.
         /// </summary>
         internal static string NavigationServerStatusUri {
             get {

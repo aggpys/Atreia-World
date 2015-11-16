@@ -243,7 +243,7 @@
     <value>База знаний</value>
   </data>
   <data name="NavigationServerStatusUri" xml:space="preserve">
-    <value>http://tokatcc.1gb.ru/status</value>
+    <value>http://localhost:5000/api/status</value>
     <comment>*</comment>
   </data>
   <data name="NavigationVoteUri" xml:space="preserve">
