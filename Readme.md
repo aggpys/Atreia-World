@@ -2,7 +2,8 @@
 
 | Language         | Platform                     | Programming language  |
 | :--------------: |:----------------------------:| :--------------------:|
-| Russian          | Microsoft .Net Framework 4.0 | C#					  |
+| Russian          | Microsoft .Net Framework 4.0 | C#					          |
+|                  | Python 3.4.3                 | Python                |
 
 ![Main window](https://raw.githubusercontent.com/aggpys/Atreia-World/master/Screenshots/s-main.png)
 
